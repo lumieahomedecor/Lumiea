@@ -13,6 +13,32 @@
 .stars{font-size:22px;letter-spacing:4px;color:#b4776d;margin:8px 0 14px}.review-empty{color:#786861;line-height:1.7}.review-btn{display:inline-block;margin-top:16px;border:1px solid #463b37;background:#fff;color:#463b37;border-radius:999px;padding:11px 16px;cursor:pointer}.contact-list{display:grid;gap:12px;margin-top:18px}.contact-item{padding:14px 16px;border-radius:18px;background:#f8f0eb}.contact-note{font-size:13px;color:#786861;line-height:1.6}.contact-placeholder{font-weight:700}.contact-form{display:grid;gap:10px;margin-top:20px}.contact-form input,.contact-form textarea{width:100%;border:1px solid #ddcfca;border-radius:14px;padding:12px;font:inherit;background:#fff}.contact-form textarea{min-height:110px;resize:vertical}.contact-form button{border:0;background:#463b37;color:#fff;border-radius:999px;padding:12px 16px;cursor:pointer}@media(max-width:900px){.reviews-contact{grid-template-columns:1fr}}
 footer{padding:50px 8vw;border-top:1px solid #eadfd9;display:flex;gap:20px;align-items:center;flex-wrap:wrap}footer p{color:#806e67}footer small{margin-left:auto;color:#a18e86}@media(max-width:900px){.site-header nav{display:none}.hero{grid-template-columns:1fr}.hero-art{min-height:300px}.collection-grid{grid-template-columns:1fr 1fr}.product-grid{grid-template-columns:repeat(2,1fr)}.shop-head{align-items:start;flex-direction:column}.filters{justify-content:flex-start}.about{grid-template-columns:1fr;gap:20px}}@media(max-width:560px){.hero,.collections,.shop,.faq{padding:60px 18px}.collection-grid,.product-grid{grid-template-columns:1fr}.site-header{padding:14px 18px}.hero h1{font-size:48px}.card-body h3{font-size:20px}}
 
+
+.header-actions{display:flex;align-items:center;gap:8px}
+.account-btn{border:1px solid #d9c9c2;background:#fff;color:#463b37;border-radius:999px;padding:10px 15px;cursor:pointer}
+.account-btn:hover{background:#f8f0eb}
+.account-panel,.account-backdrop{display:none}
+.account-backdrop.open{display:block;position:fixed;inset:0;background:rgba(70,59,55,.28);z-index:40}
+.account-panel.open{display:block;position:fixed;right:18px;top:78px;width:min(390px,calc(100vw - 36px));background:#fffaf7;border:1px solid #eadfd9;border-radius:24px;box-shadow:0 25px 80px #463b3730;z-index:41;padding:24px}
+.account-panel h2{font:600 30px Georgia,serif;margin:0 0 8px}
+.account-panel p{color:#786861;font-size:13px;line-height:1.5}
+.account-tabs{display:flex;gap:8px;margin:18px 0}
+.account-tab{flex:1;border:1px solid #d9c9c2;background:#fff;border-radius:999px;padding:9px;cursor:pointer}
+.account-tab.active{background:#463b37;color:#fff}
+.account-form{display:grid;gap:10px}
+.account-form input{width:100%;padding:12px 14px;border:1px solid #d9c9c2;border-radius:12px;background:#fff}
+.account-form button{border:0;border-radius:999px;padding:12px 16px;background:#463b37;color:#fff;cursor:pointer}
+.account-close{float:right;border:0;background:transparent;font-size:28px;cursor:pointer}
+.account-status{padding:12px;background:#f8f0eb;border-radius:14px;margin:12px 0}
+.coupon-box{margin:15px 0;padding:14px;background:#fff;border:1px solid #eadfd9;border-radius:16px}
+.coupon-row{display:flex;gap:8px;margin-top:8px}
+.coupon-row input{flex:1;padding:10px;border:1px solid #d9c9c2;border-radius:10px}
+.coupon-row button{border:0;border-radius:10px;padding:10px 13px;background:#463b37;color:#fff}
+.discount-line{color:#7d625b}
+.sample-review{padding:16px;margin:12px 0;background:#fff;border:1px solid #eadfd9;border-radius:16px}
+.sample-review .review-name{font-weight:700;margin-top:8px}
+.review-disclaimer{font-size:12px;color:#8c7972;margin-bottom:16px}
+@media(max-width:800px){.site-header nav{display:none}.header-actions{margin-left:auto}.account-btn{padding:9px 12px}.bag{padding:9px 13px}}
 </style>
 </head>
 <body>
@@ -21,7 +47,10 @@ footer{padding:50px 8vw;border-top:1px solid #eadfd9;display:flex;gap:20px;align
 <nav>
 <a href="#shop">SHOP</a><a href="#collections">COLLECTIONS</a><a href="#about">ABOUT</a><a href="#faq">FAQ</a>
 <a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
+<div class="header-actions">
+<button class="account-btn" id="accountToggle" type="button">Log in</button>
 <button class="bag" id="bagToggle">Bag <span id="bagCount">0</span></button>
+</div>
 </header>
 <main id="top">
 <section class="hero">
@@ -543,14 +572,17 @@ footer{padding:50px 8vw;border-top:1px solid #eadfd9;display:flex;gap:20px;align
 <div class="review-card">
 <p class="eyebrow">CUSTOMER LOVE</p><h2>Reviews</h2>
 <div class="stars">★★★★★</div>
-<p class="review-empty">LUMIÉA is just getting started — be one of the first to share your experience. We’ll add genuine customer reviews here as they come in.</p>
+<p class="review-disclaimer">Sample reviews shown for website preview only. These will be replaced with genuine customer reviews as they come in.</p>
+<div class="sample-review"><div class="stars">★★★★★</div><p>“The lamp is even prettier in person. It makes my room feel so cozy at night!”</p><div class="review-name">— Maya R.</div></div>
+<div class="sample-review"><div class="stars">★★★★★</div><p>“I bought the little planter for my desk and it is honestly adorable. The quality surprised me too.”</p><div class="review-name">— Jasmine K.</div></div>
+<div class="sample-review"><div class="stars">★★★★★</div><p>“The design is so unique. I’ve already had people ask me where I got it.”</p><div class="review-name">— Sofia T.</div></div>
 <button class="review-btn" id="reviewBtn" type="button">Leave a Review</button>
 </div>
 <div class="contact-card" id="contact">
 <p class="eyebrow">WE’RE HERE TO HELP</p><h2>Contact LUMIÉA</h2>
 <p class="contact-note">Questions about a product, an order, shipping, or returns? Send us a message and we’ll get back to you.</p>
 <div class="contact-list">
-<div class="contact-item"><span class="contact-placeholder">📧 Business email</span><br/><span class="contact-note">Add your LUMIÉA customer-service email here before launch.</span></div>
+<div class="contact-item"><span class="contact-placeholder">📧 Business email</span><br/><a href="mailto:teddybear432@icloud.com">teddybear432@icloud.com</a></div>
 <div class="contact-item"><span class="contact-placeholder">💬 WhatsApp</span><br/><span class="contact-note">Add your business WhatsApp number here if you want customers to contact you directly.</span></div>
 </div>
 <form class="contact-form" id="contactForm">
@@ -559,7 +591,7 @@ footer{padding:50px 8vw;border-top:1px solid #eadfd9;display:flex;gap:20px;align
 <textarea id="contactMessage" placeholder="How can we help?" required=""></textarea>
 <button type="submit">Prepare Message</button>
 </form>
-<p class="contact-note" style="margin-top:10px">This form prepares an email on the customer’s device. A business email address must be added above for messages to be delivered.</p>
+<p class="contact-note" style="margin-top:10px">Messages are prepared for your LUMIÉA business email. Your exact business address can be added later when you provide it.</p>
 </div>
 </section>
 <section class="faq" id="faq">
@@ -573,7 +605,38 @@ footer{padding:50px 8vw;border-top:1px solid #eadfd9;display:flex;gap:20px;align
 <aside aria-hidden="true" class="bag-panel" id="bagPanel">
 <div class="bag-panel-head"><h2>Your bag</h2><button id="closeBag">×</button></div>
 <div id="bagItems"><p>Your bag is empty.</p></div>
-<div class="bag-foot"><p>Checkout will be connected after payment setup.</p><button class="primary" id="checkoutBtn">Checkout</button></div>
+<div class="bag-foot">
+<div class="coupon-box"><strong>Have a coupon?</strong><div class="coupon-row"><input id="couponInput" placeholder="Enter coupon code" aria-label="Coupon code"/><button id="applyCoupon" type="button">Apply</button></div><p id="couponMessage" class="contact-note"></p></div>
+<p id="discountLine" class="discount-line"></p>
+<p id="checkoutNote">Checkout will be connected after payment setup.</p><button class="primary" id="checkoutBtn">Checkout</button>
+</div>
+</aside>
+
+<div class="account-backdrop" id="accountBackdrop"></div>
+<aside class="account-panel" id="accountPanel" aria-hidden="true">
+<button class="account-close" id="closeAccount" type="button" aria-label="Close">×</button>
+<h2 id="accountTitle">LUMIÉA Account</h2>
+<p id="accountIntro">Create an account to keep your bag saved on this device and access it again when you log in.</p>
+<div id="accountLoggedOut">
+<div class="account-tabs"><button class="account-tab active" id="loginTab" type="button">Log in</button><button class="account-tab" id="signupTab" type="button">Create account</button></div>
+<form class="account-form" id="loginForm">
+<input id="loginEmail" type="email" placeholder="Email address" required>
+<input id="loginPassword" type="password" placeholder="Password" minlength="6" required>
+<button type="submit">Log in</button>
+</form>
+<form class="account-form" id="signupForm" style="display:none">
+<input id="signupName" type="text" placeholder="Your name" required>
+<input id="signupEmail" type="email" placeholder="Email address" required>
+<input id="signupPassword" type="password" placeholder="Create a password (6+ characters)" minlength="6" required>
+<button type="submit">Create account</button>
+</form>
+<p class="contact-note">For now, accounts are saved securely in this browser only. A server-backed account system can be connected later for cross-device login.</p>
+</div>
+<div id="accountLoggedIn" style="display:none">
+<div class="account-status">Signed in as <strong id="accountName"></strong><br><span id="accountEmail"></span></div>
+<p>Your saved bag stays available on this device when you return to LUMIÉA.</p>
+<button class="account-form" id="logoutBtn" type="button">Log out</button>
+</div>
 </aside>
 <div aria-hidden="true" class="lightbox" id="lightbox"><button id="closeLightbox">×</button><img alt="" id="lightboxImg"/></div>
 <div class="toast" id="toast"></div>
@@ -589,41 +652,155 @@ function setFilter(filter){
   document.getElementById('shop').scrollIntoView({behavior:'smooth',block:'start'});
 }
 filters.forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter)));
-const bag=[];
+
+let currentUser=null;
+let bag=[];
+let appliedCoupon=null;
 const bagPanel=document.getElementById('bagPanel');
 const bagCount=document.getElementById('bagCount');
 const bagItems=document.getElementById('bagItems');
+
+const COUPONS={
+  WELCOME10:{type:'percent',value:10},
+  LUMIEA10:{type:'percent',value:10},
+  MAGIC15:{type:'percent',value:15}
+};
+
+function userKey(email){return 'lumiea_bag_'+email.toLowerCase().trim();}
+function saveBag(){
+  localStorage.setItem(currentUser?userKey(currentUser.email):'lumiea_guest_bag',JSON.stringify(bag));
+}
+function loadBag(){
+  try{bag=JSON.parse(localStorage.getItem(currentUser?userKey(currentUser.email):'lumiea_guest_bag')||'[]')}catch(e){bag=[]}
+  renderBag();
+}
 function renderBag(){
   bagCount.textContent=bag.length;
   bagItems.innerHTML=bag.length?bag.map((x,i)=>`<div class="bag-row"><span>${x}</span><button onclick="removeBag(${i})">Remove</button></div>`).join(''):'<p>Your bag is empty.</p>';
+  const line=document.getElementById('discountLine');
+  if(line) line.textContent=appliedCoupon?`Coupon ${appliedCoupon.code}: ${appliedCoupon.value}% off at checkout.`:'';
 }
-window.removeBag=i=>{bag.splice(i,1);renderBag()};
+window.removeBag=i=>{bag.splice(i,1);saveBag();renderBag()};
+
 document.querySelectorAll('.bag-btn').forEach(b=>b.addEventListener('click',()=>{
-  bag.push(b.dataset.product);renderBag();
+  bag.push(b.dataset.product);saveBag();renderBag();
   const t=document.getElementById('toast');t.textContent='Added to your LUMIÉA bag ✦';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1400);
 }));
 document.getElementById('bagToggle').onclick=()=>bagPanel.classList.add('open');
 document.getElementById('closeBag').onclick=()=>bagPanel.classList.remove('open');
-document.getElementById('checkoutBtn').onclick=()=>alert('Checkout is not connected yet. Payment setup comes next.');
+
+document.getElementById('applyCoupon').onclick=()=>{
+  const code=document.getElementById('couponInput').value.trim().toUpperCase();
+  const msg=document.getElementById('couponMessage');
+  if(COUPONS[code]){
+    appliedCoupon={code,...COUPONS[code]};
+    msg.textContent=`Coupon applied — ${appliedCoupon.value}% off.`;
+    renderBag();
+  }else{
+    appliedCoupon=null;
+    msg.textContent='That coupon code is not available.';
+    renderBag();
+  }
+};
+
+document.getElementById('checkoutBtn').onclick=()=>{
+  if(!bag.length){alert('Your bag is empty.');return;}
+  alert('Your bag is ready. Payment checkout will be connected after LUMIÉA payment setup is completed.');
+};
+
 document.querySelectorAll('.product-image').forEach(btn=>btn.addEventListener('click',()=>{
   const img=btn.querySelector('img');document.getElementById('lightboxImg').src=img.src;document.getElementById('lightboxImg').alt=img.alt;document.getElementById('lightbox').classList.add('open');
 }));
 document.getElementById('closeLightbox').onclick=()=>document.getElementById('lightbox').classList.remove('open');
 document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')e.currentTarget.classList.remove('open')});
 
+const accountPanel=document.getElementById('accountPanel');
+const accountBackdrop=document.getElementById('accountBackdrop');
+const accountToggle=document.getElementById('accountToggle');
+function openAccount(){accountPanel.classList.add('open');accountBackdrop.classList.add('open');accountPanel.setAttribute('aria-hidden','false');updateAccountUI();}
+function closeAccount(){accountPanel.classList.remove('open');accountBackdrop.classList.remove('open');accountPanel.setAttribute('aria-hidden','true');}
+accountToggle.onclick=openAccount;
+document.getElementById('closeAccount').onclick=closeAccount;
+accountBackdrop.onclick=closeAccount;
+
+function hashPassword(text){
+  // Web Crypto SHA-256; no plaintext password is stored.
+  return crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)).then(buf=>Array.from(new Uint8Array(buf)).map(x=>x.toString(16).padStart(2,'0')).join(''));
+}
+function getUsers(){try{return JSON.parse(localStorage.getItem('lumiea_users')||'{}')}catch(e){return {}}}
+function updateAccountUI(){
+  const out=document.getElementById('accountLoggedOut'), inn=document.getElementById('accountLoggedIn');
+  if(currentUser){
+    out.style.display='none';inn.style.display='block';
+    document.getElementById('accountName').textContent=currentUser.name;
+    document.getElementById('accountEmail').textContent=currentUser.email;
+    accountToggle.textContent='My account';
+  }else{
+    out.style.display='block';inn.style.display='none';accountToggle.textContent='Log in';
+  }
+}
+function setAccountTab(tab){
+  const login=tab==='login';
+  document.getElementById('loginForm').style.display=login?'grid':'none';
+  document.getElementById('signupForm').style.display=login?'none':'grid';
+  document.getElementById('loginTab').classList.toggle('active',login);
+  document.getElementById('signupTab').classList.toggle('active',!login);
+}
+document.getElementById('loginTab').onclick=()=>setAccountTab('login');
+document.getElementById('signupTab').onclick=()=>setAccountTab('signup');
+
+document.getElementById('signupForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const name=document.getElementById('signupName').value.trim();
+  const email=document.getElementById('signupEmail').value.trim().toLowerCase();
+  const password=document.getElementById('signupPassword').value;
+  const users=getUsers();
+  if(users[email]){alert('An account with this email already exists. Please log in.');return;}
+  users[email]={name,email,passwordHash:await hashPassword(password)};
+  localStorage.setItem('lumiea_users',JSON.stringify(users));
+  currentUser={name,email};localStorage.setItem('lumiea_current_user',JSON.stringify(currentUser));
+  const guestBag=bag.slice();
+  localStorage.removeItem('lumiea_guest_bag');
+  bag=JSON.parse(localStorage.getItem(userKey(email))||'[]');
+  if(guestBag.length && !bag.length)bag=guestBag;
+  saveBag();renderBag();updateAccountUI();
+  alert('Your LUMIÉA account has been created.');
+});
+
+document.getElementById('loginForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const email=document.getElementById('loginEmail').value.trim().toLowerCase();
+  const password=document.getElementById('loginPassword').value;
+  const users=getUsers();
+  if(!users[email]){alert('No LUMIÉA account was found for that email.');return;}
+  const hash=await hashPassword(password);
+  if(hash!==users[email].passwordHash){alert('Incorrect password.');return;}
+  currentUser={name:users[email].name,email};localStorage.setItem('lumiea_current_user',JSON.stringify(currentUser));
+  loadBag();updateAccountUI();alert('Welcome back to LUMIÉA ✦');
+});
+
+document.getElementById('logoutBtn').onclick=()=>{
+  saveBag();currentUser=null;localStorage.removeItem('lumiea_current_user');loadBag();updateAccountUI();alert('You have been logged out.');
+};
+
 const reviewBtn=document.getElementById('reviewBtn');
 if(reviewBtn) reviewBtn.addEventListener('click',()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}));
+
 const contactForm=document.getElementById('contactForm');
 if(contactForm) contactForm.addEventListener('submit',e=>{
   e.preventDefault();
-  const recipient='';
+  const recipient='teddybear432@icloud.com';
   const subject=encodeURIComponent('LUMIÉA Customer Message');
   const body=encodeURIComponent(`Name: ${document.getElementById('contactName').value}\nEmail: ${document.getElementById('contactEmail').value}\n\n${document.getElementById('contactMessage').value}`);
-  if(!recipient){alert('Add your LUMIÉA business email to the contact section before using this form.');return;}
   window.location.href=`mailto:${recipient}?subject=${subject}&body=${body}`;
 });
 
-renderBag();
-
+try{
+  const saved=JSON.parse(localStorage.getItem('lumiea_current_user')||'null');
+  if(saved) currentUser=saved;
+}catch(e){}
+if(currentUser)localStorage.setItem('lumiea_current_user',JSON.stringify(currentUser));
+loadBag();
+updateAccountUI();
 </script>
 </body></html>
